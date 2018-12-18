@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SwaggerUI from 'swagger-ui'
 import SwaggerLayout from './SwaggerLayout'
-import spec from './petstore.swagger.json';
+import IDPSpec from '../swagger-files/petstore.swagger.json';
 
 import 'swagger-ui/dist/swagger-ui.css';
 
@@ -15,21 +15,21 @@ const CustomLayoutPlugin = {
 
 class App extends Component {
   componentDidMount() {
+    const test = Object.assign({}, IDPSpec, { host: 'petstore.swagger.io' })
+
     SwaggerUI({
       dom_id: `#${DOM_ID}`,
-      spec,
+      spec: test,
       plugins: [
         CustomLayoutPlugin
       ],
-      layout: "CustomLayout"
+      layout: 'CustomLayout'
     })
   }
 
   render() {
     return (
-      <div className="App">
-        <div id={DOM_ID} />
-      </div>
+      <div id={DOM_ID} />
     );
   }
 }

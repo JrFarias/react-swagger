@@ -90,7 +90,7 @@ const SwaggerLayout = ({ specSelectors, specActions, getComponent, layoutSelecto
                     className='operation-filter-input'
                     placeholder='Filter by tag'
                     type='text'
-                    onChange={(e) => onFilterChange(e, layoutActions)}
+                    onChange={e => onFilterChange(e, layoutActions)}
                     value={filter === true || filter === 'true' ? '' : filter}
                     disabled={isLoading}
                     style={inputStyle}
